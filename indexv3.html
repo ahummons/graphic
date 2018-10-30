@@ -1,43 +1,311 @@
 <!doctype html>
 <html lang="en">
     <head>
-<meta name="description" content="This page was built for LIS786" />
+<title>Intro to Graphic Novels</title>
+<meta name="description" content="Test Page for Introducation to Graphic Novels"/>
 <meta charset="UTF-8">
-<meta name="author" content="April Hummons" />
+<meta name="author" content="April Hummons"/>
 <style>
-<link href="css/styles.css" type="text/css" rel="stylesheet">
+body{
+  font-family:sans-serif;
+}
+
+#menu_active {
+    position: absolute;
+}
+
+#wrapper {
+    padding-left: 200px;
+    transition: all 1s;
+}
+
+#menu_active:checked + #wrapper {
+    padding-left: 44px;
+    transition: all 1s;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #1f1f1f;
+    transition: all 1s;
+}
+
+#menu_active:checked + #wrapper #menu {
+    left: -160px;
+    transition: all 1s;
+}
+
+#menu_active:checked + #wrapper .fa-bars, #wrapper i.fa-arrow-left {
+    display: block;
+}
+
+#menu_active:checked + #wrapper .fa-arrow-left, #wrapper i.fa-bars {
+    display: none;
+}
+
+#menu i{
+    width:40px;
+    text-align:center;
+}
+
+#site-name {
+    color: white;
+    display: block;
+    padding: 10px;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 50px;
+    padding-right: 0px;
+}
+
+#site-name i {
+    float: right;
+}
+
+#site-name label {
+    color: white;
+    font-size: 30px;
+}
+
+#menu ul {
+    padding: 0;
+}
+
+#menu ul li {
+    color: white;
+    list-style: none;
+    padding: 10px;
+    border-left: 4px solid transparent;
+    padding-right:0px;
+}
+
+#menu ul li:hover {
+    color: #d32a4a;
+    border-left: 4px solid #d32a4a;
+}
+
+#menu ul li i {
+    float: right;
+    font-size: 24px;
+}
+
+#menu ul a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    height: 100%;
+}
+:root {
+  --color-one: #34D1D1;
+  --color-two: #2F2235;
+  --color-three: #3F3244;
+  --color-four: #F2F2F2;
+  --color-five: #D1D2D3;
+  --color-six: #666666;
+  --color-seven: #000000;
+  --color-eight: #ffffff;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.accordion {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  width: 100%;
+}
+
+.accordion__content {
+  order: 1;
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.accordion__label {
+  display: block;
+  cursor: pointer;
+  flex-grow: 1;
+  text-align: center;
+  padding: 1% 5% 1% 5%;
+  background-color: var(--color-four);
+  margin-right: 1px;
+  border-bottom: 1px solid var(--color-five);
+}
+
+.accordion__radio {
+  display: none;
+}
+
+.accordion input[type="radio"] {
+	display: none;
+}
+
+.accordion input[type="radio"] + label {
+   color: var(--color-six);
+   z-index: 1;
+}
+
+.accordion input[type="radio"]:checked + label {
+  background-color: white;
+  font-weight: 600;
+  border-top: 1px solid var(--color-five);
+  border-left: 1px solid var(--color-five);
+  border-right: 1px solid var(--color-five);
+  border-bottom: none;
+}
+.accordion input[type="radio"]:checked + label + .accordion__content {
+	display: flex;
+  margin-right: 0;
+  border-left: 1px solid var(--color-five);
+  border-right: 1px solid var(--color-five);
+  border-bottom: 1px solid var(--color-five);
+}
+
+.accordion__content__image__container {
+  width: 40%;
+  height: 100%;
+  margin-right: 10px;
+}
+
+.accordion__content__image {
+  max-width: 100%;
+  max-height: 88%;
+  margin: 3%;
+  background-color: teal;
+}
+
+.accordion__content__text {
+  width: 75%;
+  margin-top: 1%;
+  margin-left: 40px;
+}
+
+.accordion__content__text__title {
+  margin-top: 3%;
+}
+
+.accordion__content__text__horizontal-line {
+  border: none;
+  border-bottom: 1px solid var(--color-five);
+  margin-right: 2%;
+}
+
+.accordion__content__text__body {
+  margin-top: 2%;
+  padding-right: 5%;
+}
+
+@media (max-width: 900px){
+  .accordion {
+    border: 1px solid var(--color-five);
+  }
+  
+  .accordion-tab--status {
+    display: inline;
+  }
+  .accordion__content,
+  .accordion__label
+  {
+    order: initial;
+  }
+  
+  .accordion__content {
+    flex-direction: column;
+  }
+  
+  .accordion__label {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    padding: 5% 6% 5% 6%;
+  }
+
+  .accordion__label:last-child {
+    background-color: magenta;
+  }
+
+  .accordion__content__image__container {
+    width: 100%;
+  }
+
+  .accordion__content__image {
+    padding: 0;
+    margin: 0;
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+  }
+
+  .accordion__content__text {
+    font-size: 0.9em;
+    margin: 4% 5% 4% 5%;
+  }
+
+  .accordion__content__text__title {
+    margin: 2% 0 2% 0;
+  }
+
+  .accordion__content__text__horizontal-line {
+    width: 100%;
+  }
+
+  .accordion input[type="radio"] + label span:after  {
+    content: '+';
+  }
+
+  .accordion input[type="radio"]:checked + label span:after  {
+    content: '—';
+  }
+
+  .accordion input[type="radio"]:checked + label {
+    border: none; 
+  }
+
+  .accordion input[type="radio"]:checked + label + .accordion {
+    border: none;  
+  }
+
+  .accordion input[type="radio"]:checked + label + .accordion__content {
+    border: none;
+  }
 </style>
-<script>
-    $(document).ready(function() {
-  $("[data-toggle]").click(function() {
-    var toggle_el = $(this).data("toggle");
-    $(toggle_el).toggleClass("open-sidebar");
-    $("#sidebar").toggleClass("change-sidebar");
-  });
-});
-</script>
-<title>Introduction to Graphic Novels</title>
 </head>
 <body>
-<div class="container">
-    <div id="sidebar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Readings</a></li>
-            <li><a href="#">Assignments</a></li>
-                <li><a href="#">Schedule</a></li>
-        </ul>
-    </div>
-    </div>
-    <div class="main-content">
-        <div class="swipe-area"></div>
-        <a href="#" data-toggle=".main-content" id="sidebar-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+  <input type='checkbox' id='menu_active' checked/>
+  <div id='wrapper' class='active'>
+    <div id='menu'>
+      <span id='site-name'><label for='menu_active'><i class="fa fa-arrow-left"></i><i class="fa fa-bars"></i></label></span>
+      <ul>
+        <a href=''>
+          <li>Home<i class="fa fa-home"></i></li>
         </a>
-        </div>
-        <div class="content">
+        <a href=''>
+          <li>Work<i class="fa fa-briefcase"></i></li>
+        </a>
+        <a href=''>
+          <li>About<i class="fa fa-user"></i></li>
+        </a>
+        <a href=''>
+          <li>Contact<i class="fa fa-send"></i></li>
+        </a>
+        <a href='https://www.twitter.com/bastien_mottier' target='_blank'>
+          <li>Twitter<i class="fa fa-twitter"></i></li>
+        </a>
+      </ul>
+    </div>
+    <div id='page-content'>
+         <!--- Begin Accrodian Tabs --->
            <div class="accordion">
             <input class="accordion__radio" type="radio" name="accordion-tabs" id="tab-one" checked/>
             <label class="accordion__label" for="tab-one">Learning Outcomes
@@ -52,6 +320,7 @@
                   <hr class="accordion__content__text__horizontal-line" />
                 </h3>
                 <p class="accordion__content__text__body">
+                  <p>
         <ul>
           <li>Ability to identify and analyze the techniques and components in comics and graphic novels, their potential meaning and significance to visual storytelling </li>
           <li>Ability to connect various forms of visual storytelling to cultural manifestations in other disciplines in the liberal arts </li>
@@ -134,9 +403,8 @@
               </div>
             </div>
           </div>
-</div>
-<footer>
-    April Hummons copyright 2018
-  </footer>
+    <!--- End accordain tabs --->
+    </div>
+  </div>
 </body>
 </html>
